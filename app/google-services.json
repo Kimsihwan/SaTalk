@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "363620011788",
+    "firebase_url": "https://satalk.firebaseio.com",
+    "project_id": "satalk",
+    "storage_bucket": "satalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363620011788:android:08d8013ea9015f10",
+        "android_client_info": {
+          "package_name": "com.ksh.satalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363620011788-317cnn92ql6jgcvkpoip3ag9s6sai5j2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ksh.satalk",
+            "certificate_hash": "3a634a91e468e0ba790c0c1120f972fee95ec83b"
+          }
+        },
+        {
+          "client_id": "363620011788-pvl5pes4jvug2eaitcs6srem4pu4ino8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEVtf7pzjyNlU6xfuTockf7Lf54wcXkds"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363620011788-pvl5pes4jvug2eaitcs6srem4pu4ino8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
