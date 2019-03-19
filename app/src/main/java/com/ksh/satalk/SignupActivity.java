@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,7 +80,7 @@ public class SignupActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
 
                                         Task<Uri> uriTask = task.getResult().getStorage().getDownloadUrl();
-                                        while (!uriTask.isComplete());
+                                        while (!uriTask.isComplete()) ;
                                         Uri downloadUrl = uriTask.getResult();
                                         String imageUrl = downloadUrl.toString();
 
@@ -87,7 +88,13 @@ public class SignupActivity extends AppCompatActivity {
                                         userModel.userName = name.getText().toString();
                                         userModel.profileImageUrl = imageUrl;
 
-                                        FirebaseDatabase.getInstance().getReference().child("users").child(uid).setValue(userModel);
+                                        FirebaseDatabase.getInstance().getReference().child("users").child(uid).setValue(userModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                SignupActivity.this.finish();
+                                            }
+                                        });
+
                                     }
                                 });
                             }
