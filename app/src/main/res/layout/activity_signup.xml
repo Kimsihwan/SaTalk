@@ -4,49 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/loading_icon" />
+    android:gravity="center"
+    tools:context=".SignupActivity">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <EditText
-            android:id="@+id/loginActivity_edittext_id"
+            android:id="@+id/signupActivity_edittext_email"
+            android:hint="이메일"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="아이디" />
+            android:layout_height="wrap_content" />
+
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <EditText
-            android:id="@+id/loginActivity_edittext_pwd"
+            android:id="@+id/signupActivity_edittext_pwd"
+            android:hint="패스워드"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="비밀번호"
-            android:inputType="textPassword" />
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/signupActivity_edittext_name"
+            android:hint="이름"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/loginActivity_button_login"
+        android:text="회원가입"
+        android:id="@+id/signupActivity_button_singup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그인" />
-
-    <Button
-        android:id="@+id/loginActivity_button_signup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="회원가입" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
