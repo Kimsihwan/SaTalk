@@ -64,7 +64,7 @@ public class SignupActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(email.getText().toString()) || TextUtils.isEmpty(pwd.getText().toString()) || TextUtils.isEmpty(name.getText().toString())) {
+                if (TextUtils.isEmpty(email.getText().toString()) || TextUtils.isEmpty(pwd.getText().toString()) || TextUtils.isEmpty(name.getText().toString()) || imageUri == null) {
                     return;
                 }
                 FirebaseAuth.getInstance()
