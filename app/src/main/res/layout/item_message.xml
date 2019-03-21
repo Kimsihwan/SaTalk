@@ -25,17 +25,31 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/messageItem_textView_message"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/rounded_rectangle_orange"
-        android:maxWidth="240dp"
-        android:padding="8dp"
-        android:text="hi man, how are you?"
-        android:textColor="#ffffff" />
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/messageItem_textView_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rounded_rectangle_orange"
+            android:maxWidth="240dp"
+            android:padding="8dp"
+            android:text="hi man, how are you?"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:text="2011.11.11 11:11"
+            android:textSize="9sp"
+            android:textColor="@android:color/darker_gray"
+            android:id="@+id/messageItem_textView_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </LinearLayout>

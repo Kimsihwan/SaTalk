@@ -25,13 +25,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.ksh.satalk.Model.ChatModel;
 import com.ksh.satalk.Model.UserModel;
 import com.ksh.satalk.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class MessageActivity extends AppCompatActivity {
 
@@ -43,6 +47,8 @@ public class MessageActivity extends AppCompatActivity {
     private String chatRoomUid;
 
     private RecyclerView recyclerView;
+
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +81,7 @@ public class MessageActivity extends AppCompatActivity {
                     ChatModel.Comment comment = new ChatModel.Comment();
                     comment.uid = uid;
                     comment.message = editText.getText().toString();
+                    comment.timestamp = ServerValue.TIMESTAMP;
                     FirebaseDatabase.getInstance().getReference().child("chatrooms").child(chatRoomUid).child("comments").push().setValue(comment).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -186,6 +193,12 @@ public class MessageActivity extends AppCompatActivity {
                 messageViewHolder.linearLayout_main.setGravity(Gravity.LEFT);
             }
 
+            long unixTime = (long) comments.get(i).timestamp;
+            Date date = new Date(unixTime);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+            String time = simpleDateFormat.format(date);
+            messageViewHolder.textView_timestamp.setText(time);
+
         }
 
         @Override
@@ -198,6 +211,7 @@ public class MessageActivity extends AppCompatActivity {
     private class MessageViewHolder extends RecyclerView.ViewHolder {
         public TextView textView_message;
         public TextView textView_name;
+        public TextView textView_timestamp;
         public ImageView imageView_profile;
         public LinearLayout linearLayout_destination;
         public LinearLayout linearLayout_main;
@@ -206,6 +220,7 @@ public class MessageActivity extends AppCompatActivity {
             super(view);
             textView_message = (TextView) view.findViewById(R.id.messageItem_textView_message);
             textView_name = (TextView) view.findViewById(R.id.messageItem_textView_name);
+            textView_timestamp = (TextView) view.findViewById(R.id.messageItem_textView_timestamp);
             imageView_profile = (ImageView) view.findViewById(R.id.messageItem_imageView_profile);
             linearLayout_destination = (LinearLayout) view.findViewById(R.id.messageItem_Linearlayout_destination);
             linearLayout_main = (LinearLayout) view.findViewById(R.id.messageItem_Linearlayout_main);
