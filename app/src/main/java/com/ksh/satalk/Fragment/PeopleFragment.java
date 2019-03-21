@@ -55,7 +55,7 @@ public class PeopleFragment extends Fragment {
 
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         UserModel userModel = snapshot.getValue(UserModel.class);
-                        if(userModel.uid.equals(myUid)){
+                        if (userModel.uid.equals(myUid)) {
                             continue;
                         }
                         userModels.add(userModel);
@@ -103,16 +103,16 @@ public class PeopleFragment extends Fragment {
         public int getItemCount() {
             return userModels.size();
         }
-    }
 
-    private class CustomViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public TextView textView;
+        private class CustomViewHolder extends RecyclerView.ViewHolder {
+            public ImageView imageView;
+            public TextView textView;
 
-        public CustomViewHolder(View view) {
-            super(view);
-            imageView = (ImageView) view.findViewById(R.id.frienditem_imageview);
-            textView = (TextView) view.findViewById(R.id.frienditem_textview);
+            public CustomViewHolder(View view) {
+                super(view);
+                imageView = (ImageView) view.findViewById(R.id.frienditem_imageview);
+                textView = (TextView) view.findViewById(R.id.frienditem_textview);
+            }
         }
     }
 }
