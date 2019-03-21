@@ -226,4 +226,11 @@ public class MessageActivity extends AppCompatActivity {
             linearLayout_main = (LinearLayout) view.findViewById(R.id.messageItem_Linearlayout_main);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.fromleft, R.anim.toright);
+    }
 }

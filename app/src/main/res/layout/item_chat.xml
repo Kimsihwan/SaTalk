@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:layout_margin="10dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -19,16 +19,30 @@
             android:id="@+id/chatItem_textView_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="방이름" />
+            android:text="방이름"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/chatItem_textView_lastMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/chatItem_textView_title"
             android:layout_marginTop="10dp"
-            android:text="마지막메시지" />
+            android:text="마지막메시지"
+            android:textColor="@android:color/darker_gray" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/chatItem_textView_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:text="2011.11.11 11:11"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
